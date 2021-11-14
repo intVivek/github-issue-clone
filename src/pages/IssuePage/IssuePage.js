@@ -3,14 +3,17 @@ import useFetch from "../../Hooks/useFetch";
 import './IssuePage.scss';
 import IssueBox from '../../components/IssueBox/IssueBox.js'
 import Header  from '../../components/Header/Header';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function IssuePage() {
 	const observer = useRef();
-	let navigate = useNavigate();
+	let navigate = useNavigate(),
+		location = useLocation(),
+		query = new URLSearchParams(location.search),
+		userRepo = query.get('userRepo')?.split('/') ?? ['facebook', 'react'];
 	const [pageNum, setPageNum] = useState(1);
-	const [searchUser, setSearchUser] = useState('facebook');
-	const [searchRepo, setSearchrepo] = useState('react');
+	const [searchUser, setSearchUser] = useState(userRepo?.[0]);
+	const [searchRepo, setSearchrepo] = useState(userRepo?.[1]);
 	const [repoData, setRepoData] = useState();
 	const { isLoading, queries, hasMore } = useFetch(pageNum, `${searchUser}/${searchRepo}`);
 	const lastElementRef = useCallback(
@@ -45,7 +48,7 @@ export default function IssuePage() {
 console.log(queries);
 	return (
 			<div className="homePageMain">
-				<Header searchUser={searchUser} setSearchUser={setSearchUser} searchRepo={searchRepo} setSearchrepo={setSearchrepo} repoData={repoData} />
+				<Header subHeader searchUser={searchUser} setSearchUser={setSearchUser} searchRepo={searchRepo} setSearchrepo={setSearchrepo} repoData={repoData} />
 				<div className="issuePage">
 					{ queries.map((queries, index) => <IssueBox key={index} data={queries} /> )}
 					<div ref={lastElementRef}></div>

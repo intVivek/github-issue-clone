@@ -3,12 +3,13 @@
   width: 80%;
   height: 80px;
   display: flex;
+  flex-direction: column;
   background-color: #ffffff;
-  margin-top: 15px;
+  margin-top: 10px;
   padding: 15px;
   box-sizing: border-box;
-  border-radius: 12px;
-  box-shadow: 0px 0px 7px -2px #888888;
+  border-radius: 8px;
+  border: 1px solid #b1b1b1;
   cursor: pointer;
 
   > .head {
@@ -24,5 +25,31 @@
       line-height: 1.2;
       font-weight: 600;
     }
+  }
+
+  > .tail {
+    display: flex;
+    justify-content: space-between;
+
+    > .label {
+      font-size: 14px;
+    }
+    > .comments {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      > .icon {
+        width: 14px; height: 14px;
+        margin-bottom: -1px;
+        margin-right: 3px;
+      }
+      > .label {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 7px -2px #888888;
   }
 }

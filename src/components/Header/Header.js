@@ -31,7 +31,7 @@ const Option = (props) => {
 };
 
 const Header = (props) => {
-	const { searchUser, setSearchUser, searchRepo, setSearchrepo, repoData } = props,
+	const { searchUser, setSearchUser, searchRepo, setSearchrepo, repoData, subHeader } = props,
 	onKeyDown = (event) => {
 		if (event.key === '/') {
 			
@@ -45,17 +45,21 @@ const Header = (props) => {
 			<div className="mainheader">
 				<div className="logo"><Logo className="icon" /><Github className="text" /></div>
 			</div>
-			<div className="subHeader">
+			{
+				subHeader && 
+				<div className="subHeader">
 				<div className="repoContainer">
 					<div className="search">
 						<Search className="icon" />
 						<p className="label">{'Search'}</p>
 					</div>
-					<input className="searchUser" value={searchUser} onKeyDown={onKeyDown}
-						onChange={(e) => { setSearchUser(e.target.value) }} placeholder='username' />
-					<p>/</p>
-					<input className="searchRepo" value={searchRepo}
-						onChange={(e) => { setSearchrepo(e.target.value) }}  placeholder='repository' />
+					<div className="searchContainer">
+						<input className="searchUser" value={searchUser} onKeyDown={onKeyDown}
+							onChange={(e) => { setSearchUser(e.target.value) }} placeholder='username' />
+						<p>/</p>
+						<input className="searchRepo" value={searchRepo}
+							onChange={(e) => { setSearchrepo(e.target.value) }}  placeholder='repository' />
+					</div>
 				</div>
 				<div className="optionContainer">
 					<Option className='watch' Icon={Eye} value={repoData?.watchers} active={repoState.watch} onClick={() => dispatch(watch())} />
@@ -63,6 +67,7 @@ const Header = (props) => {
 					<Option className='fork' Icon={Fork} value={repoData?.forks} active={repoState.fork} onClick={() => dispatch(fork())} />
 				</div> 
 			</div>
+		}
 		</div>
 	);
 }

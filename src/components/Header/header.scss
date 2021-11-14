@@ -57,23 +57,33 @@
           user-select: none;
         }
       }
-      > .searchUser, .searchRepo {
-        width: auto;
-        height: 50px;
-        background-color: transparent;
-        padding-left: 10px;
-        border: none;
-        outline: none;
-        color: #0969da;
-        font-family: 'Quicksand';
-        font-size: 20px;
+      > .searchContainer {
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 25px;
+
+        > .searchUser, .searchRepo {
+          width: auto;
+          height: 50px;
+          background-color: transparent;
+          padding-left: 10px;
+          border: none;
+          outline: none;
+          color: #0969da;
+          font-family: 'Quicksand';
+          font-size: 20px;
+          font-weight: 400;
+        }
+        > .searchUser {
+          width: 100px;
+        }
+        > .searchRepo {
+          font-weight: 600;
+        }
       }
-      > .searchUser {
-        width: 100px;
-      }
-      > .searchRepo {
-        font-weight: 600;
-      }
+      
     }
     &:hover {
       >.repoContainer {
@@ -81,6 +91,19 @@
           > .label {
             will-change: width;
             width: 55px;
+            margin-right: 20px;
+          }
+        }
+        > .searchContainer {
+          border: 1px solid #b1b1b1;
+          background-color: #ffffff;
+
+          > .searchUser, .searchRepo {
+            color: #24292f !important;
+            font-weight: 400;
+          }
+          > .searchUser {
+            margin-left: 10px;
           }
         }
       }
