@@ -9,7 +9,6 @@ const IssueDetails=()=>{
   var location = useLocation();
   const query = new URLSearchParams(location.search);
   const queryId = query.get('id');
-  const userRepo = query.get('userRepo');
 
   useEffect(() => {
     var url = 'https://api.github.com/repos/facebook/react/issues/'+queryId;
@@ -21,13 +20,14 @@ const IssueDetails=()=>{
       setQueryData(data);
       setLoading(false);
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return(
     <div className='issueDetailsPage'>
       {loading? <DetailsLoading/>:
       <div className='issueDetailsUser'>
-        <img className='useImgContainer' src={queryData?.user?.avatar_url}/>
+        <img className='useImgContainer' src={queryData?.user?.avatar_url} alt='avatar' />
         <div className='issueDetailsTitle'>
           <h2>{"Issue : "+queryData?.title}</h2>
           <span>{"state"}&nbsp;&nbsp;&nbsp;&nbsp;{"#"+queryData?.state}</span>

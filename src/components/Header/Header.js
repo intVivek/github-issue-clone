@@ -17,7 +17,7 @@ const kFormatter = (num) => {
 	};
 
 const Option = (props) => {
-	const {className, Icon, label, value, active, onClick} = props;
+	const {className, Icon, value, active, onClick} = props;
 
 	return (
 		<div className={`option ${className} ${active ? 'active' : ''}`} onClick={onClick}>
@@ -33,7 +33,7 @@ const Option = (props) => {
 const Header = (props) => {
 	const { searchUser, setSearchUser, searchRepo, setSearchrepo, repoData } = props,
 	onKeyDown = (event) => {
-		if (event.key == '/') {
+		if (event.key === '/') {
 			
 		}
 	};

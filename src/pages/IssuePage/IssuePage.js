@@ -3,13 +3,11 @@ import useFetch from "../../Hooks/useFetch";
 import './IssuePage.scss';
 import IssueBox from '../../components/IssueBox/IssueBox.js'
 import Header  from '../../components/Header/Header';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function IssuePage() {
 	const observer = useRef();
 	let navigate = useNavigate();
-	var location = useLocation();
-	const query = new URLSearchParams(location.search);
 	const [pageNum, setPageNum] = useState(1);
 	const [searchUser, setSearchUser] = useState('facebook');
 	const [searchRepo, setSearchrepo] = useState('react');
@@ -32,7 +30,7 @@ export default function IssuePage() {
 	useEffect(() => {
 		document.title = `Issues · ${searchUser}/${searchRepo}`;
 		navigate(`/issue?userRepo=${searchUser}/${searchRepo}`);
-	}, [searchUser, searchRepo]);
+	}, [navigate, searchUser, searchRepo]);
 	useEffect(() => {
     fetch(`https://api.github.com/repos/${searchUser}/${searchRepo}`).then( (res) => res.json()).then((data) => {
 			console.log(data);
@@ -42,6 +40,7 @@ export default function IssuePage() {
 				forks: data.forks,
 			});
     })
+		// eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 console.log(queries);
 	return (
