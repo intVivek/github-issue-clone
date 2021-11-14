@@ -1,0 +1,30 @@
+.issueDetailsPage{
+  width: 100%;
+  height: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.issueDetailsUser{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.useImgContainer{
+  width: 120px;
+  height: 120px;
+  border-radius:50%;
+}
+.issueDetailsTitle{
+  height: 120px;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  margin-left: 40px;
+}
+.issueDetailsTitle>p{
+  color: gray;
+}
+.issueDetailsTitle>div{
+  display:flex;
+}

@@ -1,0 +1,160 @@
+.header {
+  width:100%;
+  
+  > .mainheader {
+    width:100%;
+    height: 62px;
+    background-color: #24292f;
+    display: flex;
+    align-items: center;
+
+    > .logo {
+      width: auto; height: 35px;
+      margin-left: 30px;
+      margin-right: 20px;
+
+      > .icon {
+        width: 40px; height: 100%;
+        margin-right: 8px;
+      }
+      > .text {
+        width: 68px; height: 100%;
+      }
+    }
+  }
+
+  > .subHeader {
+    width:100%;
+    height: 62px;
+    background-color: #f6f8fa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > .repoContainer {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      > .search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        margin-left: 30px;
+        margin-top: 1px;
+
+        > .icon {
+          width: 17px; height: 17px;
+          stroke: #57606a;
+          margin-top: 1px;
+          background-color: #f6f8fa;
+        }
+        > .label {
+          width: 0;
+          margin-left: 5px;
+          overflow: hidden;
+          transition: width 0.1s ease-out;
+          user-select: none;
+        }
+      }
+      > .searchUser, .searchRepo {
+        width: auto;
+        height: 50px;
+        background-color: transparent;
+        padding-left: 10px;
+        border: none;
+        outline: none;
+        color: #0969da;
+        font-family: 'Quicksand';
+        font-size: 20px;
+      }
+      > .searchUser {
+        width: 100px;
+      }
+      > .searchRepo {
+        font-weight: 600;
+      }
+    }
+    &:hover {
+      >.repoContainer {
+        > .search {
+          > .label {
+            will-change: width;
+            width: 55px;
+          }
+        }
+      }
+    }
+
+    > .optionContainer {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+
+      > .option {
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border: 1px solid #b1b1b1;
+        border-radius: 999px;
+        margin-right: 10px;
+        cursor: pointer;
+
+        > .head {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-right: 1px solid #b1b1b1;
+          padding: 0 10px;
+          background-color: #f6f8fa;
+          user-select: none;
+
+          > .icon {
+            width: 15px; height: 15px;
+            fill: #57606a;
+            margin-right: 5px;
+          }
+          > .text {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: capitalize;
+          }
+        }
+        > .tail {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          background-color: #FFFFFF;
+          padding: 0 10px;
+          font-size: 13px;
+          font-weight: 600;
+        }
+
+        &.active {
+          > .head {
+            background-color: #0969da;
+            border-right: 1px solid #0969da;
+
+            > .icon {
+              width: 16px; height: 16px;
+              fill: #ffffff;
+              margin-right: 5px;
+            }
+            > .text {
+              font-size: 13px;
+              font-weight: 600;
+              color: #ffffff;
+              text-transform: capitalize;
+            }
+          }
+        }
+      }
+    }
+  }
+}

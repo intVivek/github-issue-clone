@@ -1,0 +1,26 @@
+.homePageMain {
+  overflow-x: hidden;
+
+  > .issuePage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #e1e3e4;
+    overflow-x: hidden;
+
+    > .issuePageLoading{
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      >.noData {
+        text-align: center;
+      }
+    }
+  }
+}
+
